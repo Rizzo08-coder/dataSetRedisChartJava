@@ -12,5 +12,6 @@ public class Main {
             example.setVisible(true);
             example.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         });
+
     }
 }
