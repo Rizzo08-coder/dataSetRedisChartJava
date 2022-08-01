@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        DataSet dataSetRedis = new DataSet();
+        DataSet dataSetRedis = new DataSet("roomTemp.*", "roomTemp.");
         System.out.println(dataSetRedis.getKeyValueMap().toString());  //debug line
 
         SwingUtilities.invokeLater(() -> {
