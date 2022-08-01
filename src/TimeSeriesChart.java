@@ -16,13 +16,13 @@ import java.time.LocalTime;
 import java.util.Map;
 
 public class TimeSeriesChart extends JFrame {
-    public TimeSeriesChart(String title, Map<LocalTime, String> map) {
+    public TimeSeriesChart(String title, Map<LocalTime, String> map,String nameFrame, String nameLine) {
         super(title);
         // Create dataset
-        XYDataset dataset = createDataset(map);
+        XYDataset dataset = createDataset(map, nameLine);
         // Create chart
         JFreeChart chart = ChartFactory.createTimeSeriesChart(
-                "Temperature Chart", // Chart
+                nameFrame, // Chart
                 "Time", // X-Axis Label
                 "Value", // Y-Axis Label
                 dataset);
@@ -36,11 +36,11 @@ public class TimeSeriesChart extends JFrame {
         setContentPane(panel);
     }
 
-    private XYDataset createDataset(Map<LocalTime, String> map) {
+    private XYDataset createDataset(Map<LocalTime, String> map, String nameLine) {
         TimeSeriesCollection dataset = new TimeSeriesCollection();
         LocalDate localDate = LocalDate.now();
 
-        TimeSeries series1 = new TimeSeries("Temperature","Time","No:of files");
+        TimeSeries series1 = new TimeSeries(nameLine,"Time","No:of files");
         for(Map.Entry<LocalTime, String> entry : map.entrySet()) {
             LocalTime localTime = entry.getKey();
             String value = entry.getValue();

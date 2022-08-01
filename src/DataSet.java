@@ -9,15 +9,15 @@ public class DataSet {
     private static final int TCP_PORT = 6379;
     private static final String PSW_DB= "admin";
     private final RedisClient redisClient;
-    private final Set<String> keysTemperature;
-    private final List<String> valuesTemperature;
+    private final Set<String> keys;
+    private final List<String> values;
     private final Map<LocalTime, String> keyValueMap;
 
-    public DataSet(String interrogation, String radical){
+    public DataSet(String query, String radical){
         redisClient = new RedisClient(IP_ADDRESS, TCP_PORT, 100, PSW_DB);
-        keysTemperature = redisClient.getKeysByString(interrogation);
-        valuesTemperature = redisClient.getValuesByKeys(keysTemperature);
-        keyValueMap = associationKeyValue(keysTemperature, valuesTemperature, radical);
+        keys = redisClient.getKeysByString(query);
+        values = redisClient.getValuesByKeys(keys);
+        keyValueMap = associationKeyValue(keys, values, radical);
     }
 
     private Map<LocalTime, String> associationKeyValue(Set<String> keys, List<String> values, String radical) {
