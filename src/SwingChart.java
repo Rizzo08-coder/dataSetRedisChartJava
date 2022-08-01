@@ -1,13 +1,13 @@
 import javax.swing.*;
 
-public class SwingChar {
+public class SwingChart {
     static final String QUERY_TEMP = "roomTemp.*";
     static final String RADICAL_TEMP = "roomTemp.";
     static final String QUERY_HUM = "roomHum.*";
     static final String RADICAL_HUM = "roomHum.";
     private DataSet dataSetTemperature;
     private DataSet dataSetHumidity;
-    public SwingChar(){
+    public SwingChart(){
         dataSetTemperature = new DataSet(QUERY_TEMP, RADICAL_TEMP);
         dataSetHumidity = new DataSet(QUERY_HUM, RADICAL_HUM);
     }

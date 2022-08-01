@@ -1,8 +1,5 @@
 import java.time.LocalTime;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class DataSet {
     private static final String IP_ADDRESS = "192.168.178.25";
