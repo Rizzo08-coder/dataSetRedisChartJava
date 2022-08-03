@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.util.Map;
 
 public class DataSetRealTime implements Runnable{
-    private TimeSeries ts = new TimeSeries("line","Time","No:of files");
+    private TimeSeries ts = new TimeSeries("f(t)","Time","No:of files");
 
     private String query;
     private String radical;
