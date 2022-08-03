@@ -28,7 +28,7 @@ public class DataSetRealTime implements Runnable{
                 if (val != -100) {
                     Second istant = new Second(localTime.getSecond(), localTime.getMinute(), localTime.getHour(),
                             LocalDate.now().getDayOfMonth(), LocalDate.now().getMonth().getValue(), LocalDate.now().getYear());
-                    ts.addOrUpdate(istant, val);
+                    ts.addOrUpdate(istant, val);  //vedere ClassCastException e ArrayIndexOutofbound
                 }
 
             }

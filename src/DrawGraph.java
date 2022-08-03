@@ -26,10 +26,13 @@ public class DrawGraph {
                 false
         );
         final XYPlot plot = (XYPlot) chart.getPlot();
+        plot.getRenderer().setSeriesStroke(0, new BasicStroke(2.0f));
         DateAxis axis = (DateAxis) plot.getDomainAxis();
         axis.setDateFormatOverride(new SimpleDateFormat("HH:mm:ss"));
         axis.setAutoRange(true);
        // axis.setFixedAutoRange(60000.0);
+
+        //settare una dimensione adatta, troppi punti che si vedono generano eccezione ?!
 
         JFrame frame = new JFrame("GraphTest");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
