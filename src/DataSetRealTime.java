@@ -18,11 +18,19 @@ public class DataSetRealTime implements Runnable{
     public synchronized void run() {
         while(true) {
             DataSet dataSet = new DataSet(query, radical);
+            System.out.println(dataSet.getKeyValueMap().toString()); //debug line
             for(Map.Entry<LocalTime, String> entry : dataSet.getKeyValueMap().entrySet()) {
                 LocalTime localTime = entry.getKey();
-                String value = entry.getValue();
-                ts.addOrUpdate(new Second(localTime.getSecond(), localTime.getMinute(), localTime.getHour(),
-                        LocalDate.now().getDayOfMonth(), LocalDate.now().getMonth().getValue(), LocalDate.now().getYear()), Double.parseDouble(value));
+                String value=null;
+                if(localTime!=null)
+                value = entry.getValue();
+                double val = Utility.convertStringToDouble(value);
+                if (val != -100) {
+                    Second istant = new Second(localTime.getSecond(), localTime.getMinute(), localTime.getHour(),
+                            LocalDate.now().getDayOfMonth(), LocalDate.now().getMonth().getValue(), LocalDate.now().getYear());
+                    ts.addOrUpdate(istant, val);
+                }
+
             }
             try {
                 Thread.sleep(5000);

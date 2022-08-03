@@ -16,9 +16,23 @@ public class Utility {
         return array;
     }
 
+    public static double convertStringToDouble(String number){
+        double value=0;
+        try {
+            value = Double.parseDouble(number);
+        } catch (NumberFormatException e){
+            value = -100;
+        }
+        return value;
+    }
+
     public static LocalTime convertStringToLocalTime(String localTime) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalTime localHour = LocalTime.parse(localTime, formatter);
+        LocalTime localHour = null;
+        try {
+            localHour = LocalTime.parse(localTime, formatter);
+        } catch(Exception e){
+        }
         return localHour;
     }
 
