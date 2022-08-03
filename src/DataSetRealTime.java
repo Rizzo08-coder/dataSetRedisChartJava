@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.util.Map;
 
 public class DataSetRealTime implements Runnable{
-    public TimeSeries ts = new TimeSeries("line","Time","No:of files");
+    private TimeSeries ts = new TimeSeries("line","Time","No:of files");
 
     private String query;
     private String radical;
@@ -15,7 +15,7 @@ public class DataSetRealTime implements Runnable{
         this.radical=radical;
     }
 
-    public synchronized void run() {
+    public void run() {
         while(true) {
             DataSet dataSet = new DataSet(query, radical);
             System.out.println(dataSet.getKeyValueMap().toString()); //debug line
@@ -29,7 +29,7 @@ public class DataSetRealTime implements Runnable{
                     Second istant = new Second(localTime.getSecond(), localTime.getMinute(), localTime.getHour(),
                             LocalDate.now().getDayOfMonth(), LocalDate.now().getMonth().getValue(), LocalDate.now().getYear());
                    try{
-                       ts.addOrUpdate(istant, val);
+                           ts.addOrUpdate(istant, val);
                    } catch (Exception e){
                        //System.out.println("class cast exception");
                    }
@@ -43,5 +43,9 @@ public class DataSetRealTime implements Runnable{
                 System.out.println(ex);
             }
         }
+    }
+
+    public TimeSeries getTimeSeries() {
+        return ts;
     }
 }

@@ -12,10 +12,10 @@ import java.text.SimpleDateFormat;
 
 public class DrawGraph {
     public DrawGraph(String title, String nameX, String nameY, String query, String radical){
-        Runnable dataRealTime = new DataSetRealTime(query, radical);
+        DataSetRealTime dataRealTime = new DataSetRealTime(query, radical);
         new Thread(dataRealTime).start();
 
-        TimeSeriesCollection dataset = new TimeSeriesCollection(((DataSetRealTime) dataRealTime).ts);
+        TimeSeriesCollection dataset = new TimeSeriesCollection(dataRealTime.getTimeSeries());
         JFreeChart chart = ChartFactory.createTimeSeriesChart(
                 title,
                 nameX,
