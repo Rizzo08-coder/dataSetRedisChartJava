@@ -30,7 +30,7 @@ public class DrawGraph {
         DateAxis axis = (DateAxis) plot.getDomainAxis();
         axis.setDateFormatOverride(new SimpleDateFormat("HH:mm:ss"));
         axis.setAutoRange(true);
-       // axis.setFixedAutoRange(60000.0);
+        axis.setFixedAutoRange(500000.0);
 
         //settare una dimensione adatta, troppi punti che si vedono generano eccezione ?!
 
@@ -40,6 +40,7 @@ public class DrawGraph {
         frame.getContentPane().add(label);
         frame.pack();
         frame.setVisible(true);
+        //frame.repaint();
 
     }
 }
