@@ -20,7 +20,7 @@ public class Utility {
         double value=0;
         try {
             value = Double.parseDouble(number);
-        } catch (NumberFormatException e){
+        } catch (Exception e){
             value = -100;
         }
         return value;
