@@ -16,7 +16,9 @@ public class SaveButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            ChartUtils.saveChartAsPNG(new File(nameImage), chart, 800, 500);
+            System.out.println("saving image...");
+            ChartUtils.saveChartAsPNG(new File(nameImage), chart, 1600, 800);
+            System.out.println("image saved");
         } catch (IOException i) {
             i.printStackTrace();
         }

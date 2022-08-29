@@ -26,7 +26,7 @@ public class DrawGraph{
         );
         chart.getAntiAlias();
         final XYPlot plot = (XYPlot) chart.getPlot();
-        plot.getRenderer().setSeriesStroke(0, new BasicStroke(2.0f));
+        plot.getRenderer().setSeriesStroke(0, new BasicStroke(4.0f));
         DateAxis axis = (DateAxis) plot.getDomainAxis();
         axis.setDateFormatOverride(new SimpleDateFormat("HH:mm:ss"));
         axis.setAutoRange(true);
@@ -36,7 +36,7 @@ public class DrawGraph{
 
         JFrame frame = new JFrame("Grafico");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JButton buttonSaveImage = new JButton("save");
+        JButton buttonSaveImage = new JButton("save(.png)");
         buttonSaveImage.addActionListener(new SaveButton(nameImage, chart));
         ChartPanel label = new ChartPanel(chart);
         frame.add(label, BorderLayout.CENTER);

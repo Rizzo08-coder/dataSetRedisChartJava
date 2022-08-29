@@ -17,8 +17,9 @@ public class DataSetRealTime implements Runnable{
 
     public void run() {
         while(true) {
+            //ts.clear();
             DataSet dataSet = new DataSet(query, radical);
-            System.out.println(dataSet.getKeyValueMap().toString()); //debug line
+          //  System.out.println(dataSet.getKeyValueMap().toString()); //debug line
             for(Map.Entry<LocalTime, String> entry : dataSet.getKeyValueMap().entrySet()) {
                 LocalTime localTime = entry.getKey();
                 String value=null;
